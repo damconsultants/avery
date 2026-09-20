@@ -1,0 +1,58 @@
+<?= $block->getButtonHtml(); ?>
+
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+
+            $("#bt_id_3").click(function () {
+
+                var product_sku = $('#byndersyncdata_bynder_sync_data_sku').val();
+                var select_attribute = $('#byndersyncdata_bynder_sync_data_select').val();
+                var url = '<?= $block->escapeUrl($block->getAjaxUrl()); ?>';
+
+                // Show Magento loader
+                $('body').trigger('processStart');
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: {
+                        product_sku: product_sku,
+                        select_attribute: select_attribute
+                    },
+
+                    success: function (response) {
+                        if (response.status == 1) {
+                            $('#byndersyncdata_bynder_sync_data_sku').val('');
+
+                            $(".success-msg-sync")
+                                .show()
+                                .html(response.message)
+                                .delay(5000)
+                                .fadeOut('slow');
+                        } else {
+                            $(".error-msg-sync")
+                                .show()
+                                .html(response.message)
+                                .delay(5000)
+                                .fadeOut('slow');
+                        }
+                    },
+
+                    error: function () {
+                        $(".error-msg-sync")
+                            .show()
+                            .html('Error in AJAX request.')
+                            .delay(5000)
+                            .fadeOut('slow');
+                    },
+
+                    complete: function () {
+                        // Hide Magento loader
+                        $('body').trigger('processStop');
+                    }
+                });
+            });
+        });
+    });
+</script>

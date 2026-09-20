@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cronimageconfig>
+            <configurable_cron>
+                <fetch_enable>0</fetch_enable>
+                <your_min_featch>3</your_min_featch>
+                <fetch_product_sku_limt>10</fetch_product_sku_limt>
+            </configurable_cron>
+            <auto_add_bynder>
+                <auto_enable>0</auto_enable>
+                <your_min_auto_add_sku_frequency>3</your_min_auto_add_sku_frequency>
+                <auto_product_sku_limt>10</auto_product_sku_limt>
+            </auto_add_bynder>
+            <update_all_sku>
+                <update_enable>0</update_enable>
+                <update_all_sku_limt>10</update_all_sku_limt>
+                <your_min_update_sku_frequency>3</your_min_update_sku_frequency>
+            </update_all_sku>
+            <delete_cron_bynder>
+                <delete_enable>0</delete_enable>
+                <your_min_delete_frequency>3</your_min_delete_frequency>
+            </delete_cron_bynder>
+        </cronimageconfig>
+    </default>
+</config>
