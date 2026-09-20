@@ -5,7 +5,7 @@
     <policies>
         <policy id="img-src">
             <values>
-                <value id="bynder-gallery" type="host">https://gallery.bynder.com</value>
+                <value id="bynder-gallery" type="host">https://avery.bynder.com</value>
             </values>
         </policy>
     </policies>

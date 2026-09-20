@@ -35,7 +35,7 @@ class VersionCheck extends Field
 
     public function getLatestVersion()
     {
-        $repoUrl = 'https://api.github.com/repos/damconsultants/bynder/releases/latest';
+        $repoUrl = 'https://api.github.com/repos/damconsultants/avery/releases/latest';
         $this->curl->setOption(CURLOPT_RETURNTRANSFER, true);
         $this->curl->setOption(CURLOPT_USERAGENT, 'Magento2');
         $this->curl->get($repoUrl);
@@ -72,7 +72,7 @@ class VersionCheck extends Field
 
     public function getChangeLogUrl()
     {
-        return 'https://github.com/damconsultants/bynder/releases';
+        return 'https://github.com/damconsultants/avery/releases';
     }
 
     protected function _getElementHtml(AbstractElement $element)
