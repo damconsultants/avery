@@ -242,5 +242,21 @@
                 <label translate="true">Delete</label>
             </settings>
         </actionsColumn>
+        <actionsColumn name="resync_action" class="DamConsultants\Avery\Ui\Component\Listing\Column\ReSyncDataUpdate">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="viewUrlPath" xsi:type="string">bynder/index/resyncdataupdate</item>
+                    <item name="urlEntityParamName" xsi:type="string">id</item>
+                    <item name="confirm" xsi:type="array">
+                        <item name="title" xsi:type="string" translate="true">Re Sync SKU ?</item>
+                        <item name="message" xsi:type="string" translate="true">Are you sure you want to Re Sync This Sku?</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Re-Sync</label>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>
