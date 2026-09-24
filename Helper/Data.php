@@ -72,7 +72,7 @@ class Data extends AbstractHelper
     public const AUTO_PRODUCT_SKU_LIMIT = 'cronimageconfig/auto_add_bynder/auto_product_sku_limt';
     public const PRODUCT_SKU_LIMIT = 'cronimageconfig/set_limit_product_sku/product_sku_limt';
     public const API_CALLED = 'https://magento-thedamconsultants.in/';
-    public const IFRAME_URL = 'https://trello.thedamconsultants.com/registration';
+    public const IFRAME_URL = 'https://trello.thedamconsultants.com/bynder-registration';
 
     /**
      * Data Helper
