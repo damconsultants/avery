@@ -17,7 +17,7 @@ class FeatchNullDataToMagento
      * Roles assigned to the FIRST image when Bynder returns no role for any image.
      * Change these labels to match the exact options of your magento_role attribute.
      */
-    private const DEFAULT_IMAGE_ROLES = ["Base", "Small", "Thumbnail"];
+    private const DEFAULT_IMAGE_ROLES = ["Base", "Small", "Thumbnail", "Swatch"];
 
     /**
      * @var \Psr\Log\LoggerInterface

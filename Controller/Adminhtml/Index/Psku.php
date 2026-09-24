@@ -12,7 +12,7 @@ class Psku extends \Magento\Backend\App\Action
      * Roles assigned to the FIRST image when Bynder returns no role at all.
      * Change these labels to match the exact options of your magento_role attribute.
      */
-    private const DEFAULT_IMAGE_ROLES = ['Base', 'Small', 'Thumbnail'];
+    private const DEFAULT_IMAGE_ROLES = ['Base', 'Small', 'Thumbnail', 'Swatch'];
 
     /**
      * Used when no select_attribute is given (e.g. ReSync link).
@@ -182,8 +182,8 @@ class Psku extends \Magento\Backend\App\Action
             }
 
             // 2. Call the API
-            $byder_sku   = $sku;
-            $getData = $this->datahelper->getImageSyncWithProperties($byder_sku, null, $collectionValue);
+            $bdSku   = preg_replace('/[^A-Za-z0-9-]/', '_', $sku);
+            $getData = $this->datahelper->getImageSyncWithProperties($bdSku, null, $collectionValue);
 
             if (empty($getData) || !$this->getIsJSON($getData)) {
                 $this->insertLog($sku, 'Invalid response received from API');
@@ -198,7 +198,7 @@ class Psku extends \Magento\Backend\App\Action
                 $this->insertLog($sku, 'Please Select The Metaproperty First.....');
                 return [
                     'status'  => 0,
-                    'message' => 'Please check Avery Synchronization. Action Log.....'
+                    'message' => 'Please check Avery Synchronization Action Log.....'
                 ];
             }
 

@@ -4,23 +4,28 @@ $get_metaData = $block_get_data['metadata'];
 $default_sku_value = isset($block_get_data['sku_selected']) ? $block_get_data['sku_selected'] : '0';
 $default_image_role_value = isset($block_get_data['image_role_selected']) ? $block_get_data['image_role_selected'] : '0';
 $default_image_alt_text = isset($block_get_data['image_alt_text']) ? $block_get_data['image_alt_text'] : '0';
+$default_is_online = isset($block_get_data['image_is_online']) ? $block_get_data['image_is_online'] : '0';
 $url = $block->getMainUrl();
 $syncMetaUrl = $block->escapeUrl($block->getSynmetaProperty());
 
 $sku_properites = "";
 $image_role_properites = "";
 $alt_properites = "";
+$is_online = "";
 if (count($get_metaData) > 0) {
     foreach ($get_metaData as $newKey => $newValue) {
         $sku_checked = "";
         $image_role_checked = "";
         $alt_checked = "";
+        $is_online_checked = "";
         if ($default_sku_value == $newKey) {
             $sku_checked = "selected";
         } elseif ($default_image_role_value == $newKey) {
             $image_role_checked = "selected";
         } elseif ($default_image_alt_text == $newKey) {
             $alt_checked = "selected";
+        } elseif ($default_is_online == $newKey) {
+            $is_online_checked = "selected";
         }
         $sku_properites .= '<option value="' . $newKey . '" ' . $sku_checked . ' >' .
                         $block->escapeHtml($newValue) .
@@ -29,6 +34,9 @@ if (count($get_metaData) > 0) {
                         $block->escapeHtml($newValue) .
                         '</option>';
         $alt_properites .= '<option value="' . $newKey . '" ' . $alt_checked . ' >' .
+                            $newValue .
+                            '</option>';
+        $is_online .= '<option value="' . $newKey . '" ' . $is_online_checked . ' >' .
                             $newValue .
                             '</option>';
     }
@@ -90,6 +98,19 @@ if (count($get_metaData) > 0) {
                         <select class="selectbox_item" id="bynder_property_alt_tax" name="select_meta_tag[]">
                             <option value="0">Select The option</option>
                             <?= $alt_properites; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label><strong>The Meta Property Configuration For the is_online. :-</strong></label>
+                    <div style="margin-top: 10px;">
+                        <input type="hidden" name="system_slug[]" value="is_online" />
+                        <label><strong>Property List:-</strong></label>
+                        <br><br>
+                        <select class="selectbox_item" id="bynder_property_is_online" name="select_meta_tag[]">
+                            <option value="0">Select The option</option>
+                            <?= $is_online; ?>
                         </select>
                     </div>
                 </div>
